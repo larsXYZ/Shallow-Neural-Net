@@ -21,9 +21,15 @@
     <ClCompile Include="..\..\matrix.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="NN.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\matrix.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="NN.h">
       <Filter>Source Files</Filter>
     </ClInclude>
   </ItemGroup>

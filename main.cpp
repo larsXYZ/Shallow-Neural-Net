@@ -1,4 +1,5 @@
 #include "matrix.h"
+#include "NN.h"
 #include <iostream>
 #include <time.h>
 #include <stdlib.h>
