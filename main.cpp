@@ -1,11 +1,20 @@
-#include <iostream>
 #include "matrix.h"
+#include <iostream>
+#include <time.h>
+#include <stdlib.h>
+
+
 
 int main(){
 	
-	matrix A(10,10, 0);
-	
-	std::cout << A.m[5][5] << std::endl;
-	
+	//Seeds the random engine
+	srand(time(NULL));
 
+	//Creates a matrix object
+	matrixObject A(10,10, 0);
+	A.randomize(-1, 1);
+
+	A.print();
+
+	system("PAUSE");
 }
