@@ -82,7 +82,7 @@ XORdata* readXORdataset(int DATASET_SIZE) { //REMEMBER TO DELETE XORDATA POINTER
 int main(){
 	
 	//DATASET variables
-	int datasetSIZE = 10000;
+	const int datasetSIZE = 10000;
 
 	//Neural net variables
 	const int I = 2; //Input layer size
@@ -107,31 +107,41 @@ int main(){
 	std::cout << std::endl;
 
 	//Calculate hidden layer values
-	double* hiddenOutputs = NeuralNet.calculateHiddenValues(testInputs);
+	double* output[datasetSIZE];
+	for (int i = 0; i < datasetSIZE; i++) {
+		
+		double input[2] = { XOR_data->i_1[i],XOR_data->i_1[i] };
+		output[i] = NeuralNet.predict(input);
+	}
 
+	
+	
+	/*
 	//Print result
 	for (int i = 0; i < H; i++) {
 		std::cout << hiddenOutputs[i] << "   ";
 	}
 	std::cout << std::endl;
 	std::cout << std::endl;
-
+	*/
+	
+	/*
 	//Prints hidden layer to output weights
 	NeuralNet.H_O->print();
 	std::cout << std::endl;
 	std::cout << std::endl;
+	
 
 	//Calculate output layer values
 	double* outputs = NeuralNet.calculateOutputValues(hiddenOutputs);
+	*/
 
 	//Print output
-	for (int i = 0; i < O; i++) {
-		std::cout << outputs[i] << "   ";
+	for (int i = 0; i < datasetSIZE; i++) {
+		std::cout << output[i][0] << std::endl;
 	}
 
-
-	delete hiddenOutputs;
-	delete outputs;
+	for (int i = 0; i < datasetSIZE; i++) delete output[i];
 	delete XOR_data;
 	std::cout << std::endl;
 	system("PAUSE");
